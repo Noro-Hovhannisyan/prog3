@@ -1,6 +1,9 @@
 let LivingCreature = require('./LivingCreature')
 
 module.exports = class Predator extends LivingCreature{
+  constructor(x,y){
+  	this.energy = 12
+  }
   move(){
 		let emptyCells0 = this.chooseCell(0)
 		let emptyCells1 = this.chooseCell(1)
@@ -60,14 +63,14 @@ module.exports = class Predator extends LivingCreature{
 			let newY = predatorCell[1]
 
 			for (let i = 0; i < boyArr.length; i++) {
-
+				
 				if(newX==boyArr[i].x && newY==boyArr[i].y){
 					var age = boyArr[i].age
 				}
-
-
+					
+				
 			}
-
+			
 			if(age && age<12){
 				this.energy+=4
 			let newX = predatorCell[0]
@@ -82,7 +85,7 @@ module.exports = class Predator extends LivingCreature{
 			this.x = newX
 			this.y = newY
 			}
-
+			
 		}
 		else{
 			this.move()
@@ -95,7 +98,7 @@ module.exports = class Predator extends LivingCreature{
 		let predatorCell = rand(predatorCells)
 
 		if(predatorCell && this.energy>0){
-
+			
 			this.energy+=3
 			let newX = predatorCell[0]
 			let newY = predatorCell[1]
@@ -123,7 +126,7 @@ module.exports = class Predator extends LivingCreature{
 			matrix[newX][newY] = 3
 			let predator = new Predator(newX,newY)
 			predatorArr.push(predator)
-			this.energy = 12
+			this.energy = 12	
 		}
 	}
 

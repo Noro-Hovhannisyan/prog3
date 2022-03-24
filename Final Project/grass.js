@@ -1,8 +1,7 @@
 let LivingCreature = require('./LivingCreature')
 
 module.exports = class Grass extends LivingCreature{
-
-    	mul(){
+	mul(){
 		this.multiplay++
 		let emptyCells = this.chooseCell(0)
 		let emptyCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
@@ -15,7 +14,6 @@ module.exports = class Grass extends LivingCreature{
 			this.multiplay = 0
 		}
 	}
-
 }
 
 

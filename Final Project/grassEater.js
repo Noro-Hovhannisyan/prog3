@@ -1,7 +1,10 @@
 let LivingCreature = require('./LivingCreature')
 
 module.exports = class GrassEater extends LivingCreature{
-  move(){
+	constructor(x,y){
+		this.energy = 8
+	}
+	move(){
 		let emptyCells = this.chooseCell(0)
 		let emptyCell  = rand(emptyCells)
 		if(emptyCell && this.energy>0){
@@ -64,6 +67,7 @@ module.exports = class GrassEater extends LivingCreature{
 		}
 	}
 }
+
 
 
 

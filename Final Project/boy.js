@@ -1,7 +1,11 @@
 let LivingCreature = require('./LivingCreature')
 
 module.exports = class Boy extends LivingCreature{
-  move(){
+	constructor(x,y){
+		this.energy = 100
+		this.age = 0	
+	}
+	move(){
 		let emptyCells0 = this.chooseCell(0)
 		let emptyCells1 = this.chooseCell(1)
 		let emptyCells = [...emptyCells0, ...emptyCells1]
@@ -22,7 +26,7 @@ module.exports = class Boy extends LivingCreature{
 		}
 		else if(this.energy<=0){
 			this.die()
-		}
+		}		
 	}
 
 	eatE(){
@@ -47,7 +51,7 @@ module.exports = class Boy extends LivingCreature{
 		else{
 			this.move()
 		}
-	}
+	}	
 
 	eatP(){
 		let boyCells = this.chooseCell(3)
