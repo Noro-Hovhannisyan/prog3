@@ -1,7 +1,12 @@
+function rand(array){
+	let i = Math.floor(Math.random()*array.length)
+	return array[i]
+}
 let LivingCreature = require('./LivingCreature')
 
 module.exports = class GrassEater extends LivingCreature{
 	constructor(x,y){
+		super(x,y)
 		this.energy = 8
 	}
 	move(){

@@ -1,5 +1,6 @@
 class Grass{
 	constructor(x,y){
+		
 		this.x = x
 		this.y = y
 		this.multiplay = 0

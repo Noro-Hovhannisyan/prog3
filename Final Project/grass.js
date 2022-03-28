@@ -1,6 +1,13 @@
+function rand(array){
+	let i = Math.floor(Math.random()*array.length)
+	return array[i]
+}
 let LivingCreature = require('./LivingCreature')
 
 module.exports = class Grass extends LivingCreature{
+	constructor(x,y){
+		super(x,y)
+	}
 	mul(){
 		this.multiplay++
 		let emptyCells = this.chooseCell(0)
