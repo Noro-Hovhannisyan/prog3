@@ -4,12 +4,43 @@ function rand(array){
 }
 let LivingCreature = require('./LivingCreature')
 
-module.exports = class Predator extends LivingCreature{
-  constructor(x,y){
-	super(x,y)
-  	this.energy = 12
-  }
-  move(){
+module.exports = class Predator{
+	constructor(x,y){
+		this.x = x
+		this.y = y
+		this.energy = 12
+		this.directions = []
+	}
+
+	getNewCordinates(){
+		this.directions = [
+			[this.x-1, this.y-1],
+			[this.x  , this.y-1],
+			[this.x+1, this.y-1],
+			[this.x-1, this.y  ],
+			[this.x+1, this.y  ],
+			[this.x-1, this.y+1],
+			[this.x  , this.y+1],
+			[this.x+1, this.y+1]
+		]
+	}
+
+	chooseCell(character){
+		this.getNewCordinates()
+		let found = []
+		for(let i in this.directions){
+			let x = this.directions[i][0]
+			let y = this.directions[i][1]
+			if(x>=0 && x<matrix[0].length   &&   y>=0 && y<matrix.length){
+				if(matrix[x][y]==character){
+					found.push(this.directions[i])
+				}
+			}
+		}
+		return found
+	}
+
+	move(){
 		let emptyCells0 = this.chooseCell(0)
 		let emptyCells1 = this.chooseCell(1)
 		let emptyCells = [...emptyCells0, ...emptyCells1]
@@ -143,6 +174,7 @@ module.exports = class Predator extends LivingCreature{
 			}
 		}
 	}
+
 }
 
 

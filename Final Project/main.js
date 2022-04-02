@@ -1,8 +1,8 @@
 
 var socket =io()
-var side =10
+var side = 8
 function setup(){
-	createCanvas(50* side, 50 * side)
+	createCanvas(100 * side,100 * side)
 	background("pink")}
 
 
